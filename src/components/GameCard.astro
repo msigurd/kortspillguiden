@@ -1,0 +1,79 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import spadeSuitIcon from '../assets/images/openmoji/svg-color/2660.svg';
+import cloverSuitIcon from '../assets/images/openmoji/svg-color/2663.svg';
+import heartSuitIcon from '../assets/images/openmoji/svg-color/2665.svg';
+import diamondSuitIcon from '../assets/images/openmoji/svg-color/2666.svg';
+import personIcon from '../assets/images/radix-icons/person.svg';
+
+const { game, suitIndex } = Astro.props;
+const suitIcons = [diamondSuitIcon, spadeSuitIcon, heartSuitIcon, cloverSuitIcon];
+const gameIconPath = `/src/assets/images/openmoji/svg-color/${game.data.iconUnicode}.svg`;
+const gameIcons = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/openmoji/svg-color/*.svg');
+if (!gameIcons[gameIconPath]) throw new Error(`"${game.data.iconUnicode}" does not exist in glob: "src/assets/images/openmoji/svg-color/*.svg"`);
+---
+<style>
+    a {
+        display: block;
+        color: black;
+        text-decoration: none;
+    }
+    .card-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: min-content;
+        margin: 0 auto 0 auto;
+    }
+    .card {
+        height: 9rem;
+        width: 6rem;
+        background-color: white;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / .1), 0 2px 4px -2px rgb(0 0 0 / .1);
+        border-radius: .375rem;
+        padding: .75rem .5rem;
+    }
+    .flex-wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+    .game-icon { align-self: center }
+    .suit-top { align-self: flex-start }
+    .suit-bottom { align-self: flex-end }
+    .game-info {
+        text-align: center;
+        > * + * { margin-top: .1rem }
+    }
+    .game-name {
+        font-size: 1.125rem;
+        margin-bottom: 0;
+    }
+</style>
+<a class='card-wrapper'>
+    <div class='card'>
+        <div class='flex-wrapper'>
+            <span class='suit-top'>
+                <Image src={suitIcons[suitIndex]} alt='' width='20' />
+            </span>
+            <span class='game-icon'>
+                <Image src={gameIcons[gameIconPath]()} alt='' />
+            </span>
+            <span class='suit-bottom'>
+                <Image src={suitIcons[suitIndex]} alt='' width='20' />
+            </span>
+        </div>
+    </div>
+    <div class='game-info'>
+        <p class='game-name'>{game.data.name}</p>
+        <p>
+            <Image src={personIcon} alt='' />
+            {game.data.minPlayers === game.data.maxPlayers ?
+                game.data.minPlayers :
+                `${game.data.minPlayers}-${game.data.maxPlayers}`
+            }
+        </p>
+    </div>
+</a>

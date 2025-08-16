@@ -1,0 +1,34 @@
+---
+import GameCard from './GameCard.astro';
+
+const { games, sectionIndex } = Astro.props;
+const hasVaryingPlayers = games.some(game => game.data.minPlayers !== game.data.maxPlayers);
+---
+<style>
+    h2 {
+        border-bottom: 2px solid black;
+        margin: 0;
+        padding-bottom: .75rem;
+        font-weight: normal;
+    }
+    .game-grid {
+        display: grid;
+        grid-auto-flow: dense;
+        gap: 1.25rem;
+        margin: 1rem;
+        @media (min-width: 320px) { grid-template-columns: repeat(2, minmax(0, 1fr)) }
+        @media (min-width: 475px) { grid-template-columns: repeat(3, minmax(0, 1fr)) }
+        @media (min-width: 768px) { grid-template-columns: repeat(4, minmax(0, 1fr)) }
+        @media (min-width: 1024px) { grid-template-columns: repeat(5, minmax(0, 1fr)) }
+    }
+</style>
+<div>
+    <h2>
+        {games[0].data.minPlayers}{hasVaryingPlayers ? '+ spillere' : ' spiller'}
+    </h2>
+    <div class='game-grid'>
+        {games.map((game, gameIndex) => (
+            <GameCard game={game} suitIndex={(sectionIndex + gameIndex) % 4} />
+        ))}
+    </div>
+</div>

@@ -1,16 +1,36 @@
 ---
+import { getCollection } from 'astro:content';
+import GameSection from '../components/GameSection.astro';
 
+const games = await getCollection('games');
+const uniqueMinPlayers = [...new Set(games.map(game => game.data.minPlayers))].sort((a, b) => a - b);
+const sortedGames = games.sort((a, b) => a.data.name.localeCompare(b.data.name));
+const sectionedGames = uniqueMinPlayers.map(minPlayers => sortedGames.filter(game => game.data.minPlayers === minPlayers));
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<style>
+    html {
+        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
+        background-color: #22c55e;
+    }
+    body {
+        margin: 0 auto;
+        max-width: 72rem;
+    }
+    main { margin: 0 1rem 0 1rem }
+</style>
+<html lang='nb-NO'>
+    <head>
+        <meta charset='utf-8'/>
+        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+        <meta name='viewport' content='width=device-width' />
+        <meta name='generator' content={Astro.generator} />
+        <title>Kortspillguiden</title>
+    </head>
+    <body>
+        <main>
+            {sectionedGames.map((games, sectionIndex) => (
+                <GameSection games={games} sectionIndex={sectionIndex} />
+            ))}
+        </main>
+    </body>
 </html>
