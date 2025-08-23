@@ -6,6 +6,7 @@ import cloverSuitIcon from '../assets/images/openmoji/svg-color/2663.svg';
 import heartSuitIcon from '../assets/images/openmoji/svg-color/2665.svg';
 import diamondSuitIcon from '../assets/images/openmoji/svg-color/2666.svg';
 import personIcon from '../assets/images/radix-icons/person.svg';
+import { playerCount } from '../utils/helpers';
 
 const { game, suitIndex } = Astro.props;
 const suitIcons = [diamondSuitIcon, spadeSuitIcon, heartSuitIcon, cloverSuitIcon];
@@ -52,7 +53,7 @@ if (!gameIcons[gameIconPath]) throw new Error(`"${game.data.iconUnicode}" does n
         margin-bottom: 0;
     }
 </style>
-<a class='card-wrapper'>
+<a href={`/spill/${game.id}`} class='card-wrapper'>
     <div class='card'>
         <div class='flex-wrapper'>
             <span class='suit-top'>
@@ -70,10 +71,7 @@ if (!gameIcons[gameIconPath]) throw new Error(`"${game.data.iconUnicode}" does n
         <p class='game-name'>{game.data.name}</p>
         <p>
             <Image src={personIcon} alt='' />
-            {game.data.minPlayers === game.data.maxPlayers ?
-                game.data.minPlayers :
-                `${game.data.minPlayers}-${game.data.maxPlayers}`
-            }
+            {playerCount(game.data.minPlayers, game.data.maxPlayers)}
         </p>
     </div>
 </a>

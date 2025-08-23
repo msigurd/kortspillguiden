@@ -1,0 +1,52 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import arrowLeftIcon from '../../assets/images/radix-icons/arrow-left.svg';
+import personIcon from '../../assets/images/radix-icons/person.svg?raw';
+import { playerCount } from '../../utils/helpers';
+
+export async function getStaticPaths() {
+    const games = await getCollection('games');
+    return games.map(game => ({
+        params: { id: game.id },
+        props: { game },
+    }));
+}
+const { game } = Astro.props;
+const { Content } = await render(game);
+---
+<style>
+    a {
+        display: inline-flex;
+        gap: .3rem;
+        margin-bottom: .5rem;
+        padding: .5rem .5rem .5rem 0;
+        color: black;
+        text-decoration: none;
+    }
+    article {
+        max-width: 36rem;
+        margin: 0 auto;
+        padding: .5rem 1rem .5rem 1rem;
+        border-radius: .375rem;
+        line-height: 1.5rem;
+        background-color: white;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+    }
+    #player-count { color: rgb(64, 64, 64) }
+</style>
+<Layout pageTitle=`${game.data.name} - Kortspillguiden`>
+    <a href='/'>
+        <Image src={arrowLeftIcon} width='18' alt='' />
+        Oversikt
+    </a>
+    <article>
+        <h1>{game.data.name}</h1>
+        <p id='player-count'>
+            <Fragment set:html={personIcon} />
+            {playerCount(game.data.minPlayers, game.data.maxPlayers, true)}
+        </p>
+        <Content />
+    </article>
+</Layout>
