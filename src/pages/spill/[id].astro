@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import arrowLeftIcon from '../../assets/images/radix-icons/arrow-left.svg';
 import personIcon from '../../assets/images/radix-icons/person.svg?raw';
 import { playerCount } from '../../utils/helpers';
+import type { ImageMetadata } from 'astro';
 
 export async function getStaticPaths() {
     const games = await getCollection('games');
@@ -15,6 +16,9 @@ export async function getStaticPaths() {
 }
 const { game } = Astro.props;
 const { Content } = await render(game);
+const gameSetupImgPath = `/src/assets/images/game-setups/${game.id}.svg`;
+const gameSetupImgs = import.meta.glob<{ default: ImageMetadata }>('/src/assets/images/game-setups/*.svg');
+if (!gameSetupImgs[gameSetupImgPath]) throw new Error(`"${game.id}" does not exist in glob: "src/assets/images/game-setups/*.svg"`);
 ---
 <style>
     a {
@@ -35,6 +39,14 @@ const { Content } = await render(game);
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
     }
     #player-count { color: rgb(64, 64, 64) }
+    #game-setup {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 24rem;
+        height: fit-content;
+        max-height: 16rem;
+    }
 </style>
 <Layout pageTitle=`${game.data.name} - Kortspillguiden`>
     <a href='/'>
@@ -47,6 +59,7 @@ const { Content } = await render(game);
             <Fragment set:html={personIcon} />
             {playerCount(game.data.minPlayers, game.data.maxPlayers, true)}
         </p>
+        <Image id='game-setup' src={gameSetupImgs[gameSetupImgPath]()} alt='' />
         <Content />
     </article>
 </Layout>
