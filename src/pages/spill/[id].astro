@@ -47,6 +47,20 @@ if (!gameSetupImgs[gameSetupImgPath]) throw new Error(`"${game.id}" does not exi
         height: fit-content;
         max-height: 16rem;
     }
+    #card-values {
+        background-color: rgb(252, 211, 77);
+        padding: .5rem .75rem;
+        border-radius: .375rem;
+        width: fit-content;
+        margin-top: 1rem;
+        p { margin: 0 }
+        p + p { margin-top: .5rem }
+        .card-value {
+            font-weight: 500;
+            margin-left: .75rem;
+            float: right;
+        }
+    }
 </style>
 <Layout pageTitle=`${game.data.name} - Kortspillguiden`>
     <a href='/'>
@@ -60,6 +74,12 @@ if (!gameSetupImgs[gameSetupImgPath]) throw new Error(`"${game.id}" does not exi
             {playerCount(game.data.minPlayers, game.data.maxPlayers, true)}
         </p>
         <Image id='game-setup' src={gameSetupImgs[gameSetupImgPath]()} alt='' />
+        {game.data.lowestCard && game.data.highestCard &&
+            <div id='card-values'>
+                <p>Laveste kort: <span class='card-value'>{game.data.lowestCard}</span></p>
+                <p>Høyeste kort: <span class='card-value'>{game.data.highestCard}</span></p>
+            </div>
+        }
         <Content />
     </article>
 </Layout>

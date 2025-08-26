@@ -3,6 +3,8 @@ name: 'Krig'
 iconUnicode: '2694'
 minPlayers: 2
 maxPlayers: 2
+lowestCard: '2'
+highestCard: 'A'
 ---
 ## Mål
 
