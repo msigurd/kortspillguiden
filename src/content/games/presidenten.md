@@ -1,5 +1,6 @@
 ---
 name: 'Presidenten'
+aliases: ['Boms og president', 'Boms', 'President og slave']
 iconUnicode: '1F9D1'
 minPlayers: 3
 maxPlayers: 5

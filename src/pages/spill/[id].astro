@@ -38,7 +38,7 @@ if (!gameSetupImgs[gameSetupImgPath]) throw new Error(`"${game.id}" does not exi
         background-color: white;
         box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
     }
-    #player-count { color: rgb(64, 64, 64) }
+    #aliases, #player-count { color: rgb(64, 64, 64) }
     #game-setup {
         display: block;
         margin: 0 auto;
@@ -69,6 +69,9 @@ if (!gameSetupImgs[gameSetupImgPath]) throw new Error(`"${game.id}" does not exi
     </a>
     <article>
         <h1>{game.data.name}</h1>
+        {game.data.aliases &&
+            <p id='aliases'>eller <i>{game.data.aliases.join(', ')}</i></p>
+        }
         <p id='player-count'>
             <Fragment set:html={personIcon} />
             {playerCount(game.data.minPlayers, game.data.maxPlayers, true)}

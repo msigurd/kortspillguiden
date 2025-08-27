@@ -1,5 +1,6 @@
 ---
 name: 'Vri-åtter'
+aliases: ['Olsen']
 iconUnicode: '1F503'
 minPlayers: 2
 maxPlayers: 5

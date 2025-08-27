@@ -1,5 +1,6 @@
 ---
 name: 'Blackjack'
+aliases: ['21']
 iconUnicode: '1F935'
 minPlayers: 2
 maxPlayers: 7
