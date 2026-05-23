@@ -1,4 +1,4 @@
-# Kortspillguiden ![Favicon](./public/favicon.svg)
+# Kortspillguiden <img src='./public/favicon.svg' alt='Favicon' width='32' />
 
 Kortspillguiden is a Norwegian catalog website for card game rules.
 
