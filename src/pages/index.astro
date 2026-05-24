@@ -1,15 +1,24 @@
 ---
-import { getCollection } from 'astro:content';
-import GameSection from '../components/GameSection.astro';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import GameSection from "../components/GameSection.astro";
+import Layout from "../layouts/Layout.astro";
 
-const games = await getCollection('games');
-const uniqueMinPlayers = [...new Set(games.map(game => game.data.minPlayers))].sort((a, b) => a - b);
-const sortedGames = games.sort((a, b) => a.data.name.localeCompare(b.data.name));
-const sectionedGames = uniqueMinPlayers.map(minPlayers => sortedGames.filter(game => game.data.minPlayers === minPlayers));
+const games = await getCollection("games");
+const uniqueMinPlayers = [
+  ...new Set(games.map((game) => game.data.minPlayers)),
+].sort((a, b) => a - b);
+const sortedGames = games.sort((a, b) =>
+  a.data.name.localeCompare(b.data.name),
+);
+const sectionedGames = uniqueMinPlayers.map((minPlayers) =>
+  sortedGames.filter((game) => game.data.minPlayers === minPlayers),
+);
 ---
-<Layout pageTitle='Kortspillguiden'>
-    {sectionedGames.map((games, sectionIndex) => (
-        <GameSection games={games} sectionIndex={sectionIndex} />
-    ))}
+
+<Layout pageTitle="Kortspillguiden">
+  {
+    sectionedGames.map((games, sectionIndex) => (
+      <GameSection games={games} sectionIndex={sectionIndex} />
+    ))
+  }
 </Layout>

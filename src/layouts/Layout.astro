@@ -1,74 +1,98 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../assets/images/logo.svg';
+import { Image } from "astro:assets";
+import logo from "../assets/images/logo.svg";
 
 const { pageTitle } = Astro.props;
 ---
+
 <style>
-    html, body { height: 100% }
-    html {
-        font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', Segoe UI Symbol, 'Noto Color Emoji';
-        background-color: #22c55e;
+  html,
+  body {
+    height: 100%;
+  }
+  html {
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      Segoe UI,
+      Roboto,
+      Helvetica Neue,
+      Arial,
+      Noto Sans,
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      Segoe UI Symbol,
+      "Noto Color Emoji";
+    background-color: #22c55e;
+  }
+  body {
+    margin: 0 auto;
+    max-width: 72rem;
+    display: flex;
+    flex-direction: column;
+  }
+  header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 4rem;
+    #website-name {
+      display: flex;
+      align-items: end;
+      color: black;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 500;
+      user-select: none;
     }
-    body {
-        margin: 0 auto;
-        max-width: 72rem;
-        display: flex;
-        flex-direction: column;
+  }
+  main {
+    margin: 1rem;
+    flex-grow: 1;
+  }
+  footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1rem;
+    font-size: 12px;
+    a {
+      color: black;
     }
-    header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 4rem;
-        #website-name {
-            display: flex;
-            align-items: end;
-            color: black;
-            text-decoration: none;
-            font-size: 1.5rem;
-            font-weight: 500;
-            user-select: none;
-        }
-    }
-    main {
-        margin: 1rem;
-        flex-grow: 1;
-    }
-    footer {
-        margin-top: auto;
-        text-align: center;
-        padding: 1rem;
-        font-size: 12px;
-        a { color: black }
-    }
+  }
 </style>
-<html lang='nb-NO'>
-    <head>
-        <meta charset='utf-8'/>
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-        <link rel='icon' href='/favicon.ico' sizes='32x32' />
-        <link rel='sitemap' href='/sitemap-index.xml' />
-        <link rel='manifest' href='/manifest.json' />
-        <meta name='viewport' content='width=device-width' />
-        <meta name='generator' content={Astro.generator} />
-        <title>{pageTitle}</title>
-    </head>
-    <body>
-        <header>
-            <a id='website-name' href='/'>
-                <Image src={logo} width='32' alt='' />
-                ortspillguiden.no
-            </a>
-        </header>
-        <main>
-            <slot />
-        </main>
-        <footer>
-            <a href='https://github.com/msigurd/Kortspillguiden' target='_blank' rel='noopener noreferrer'>
-                Kildekode
-            </a>
-        </footer>
-    </body>
+<html lang="nb-NO">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body>
+    <header>
+      <a id="website-name" href="/">
+        <Image src={logo} width="32" alt="" />
+        ortspillguiden.no
+      </a>
+    </header>
+    <main>
+      <slot />
+    </main>
+    <footer>
+      <a
+        href="https://github.com/msigurd/Kortspillguiden"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Kildekode
+      </a>
+    </footer>
+  </body>
 </html>
