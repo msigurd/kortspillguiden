@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import GameSection from "../components/GameSection.astro";
-import Layout from "../layouts/Layout.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
 const games = await getCollection("games");
 const uniqueMinPlayers = [
@@ -15,10 +15,10 @@ const sectionedGames = uniqueMinPlayers.map((minPlayers) =>
 );
 ---
 
-<Layout pageTitle="Kortspillguiden">
+<BaseLayout pageTitle="Kortspillguiden">
   {
     sectionedGames.map((games, sectionIndex) => (
       <GameSection games={games} sectionIndex={sectionIndex} />
     ))
   }
-</Layout>
+</BaseLayout>
