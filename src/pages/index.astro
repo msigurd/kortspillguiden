@@ -15,7 +15,7 @@ const sectionedGames = uniqueMinPlayers.map((minPlayers) =>
 );
 ---
 
-<BaseLayout pageTitle="Kortspillguiden">
+<BaseLayout>
   {
     sectionedGames.map((games, sectionIndex) => (
       <GameSection games={games} sectionIndex={sectionIndex} />

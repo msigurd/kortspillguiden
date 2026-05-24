@@ -1,8 +1,6 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/images/logo.svg";
-
-const { pageTitle } = Astro.props;
 ---
 
 <style>
@@ -73,7 +71,9 @@ const { pageTitle } = Astro.props;
     <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{pageTitle}</title>
+    <slot name="title">
+      <title>Kortspillguiden</title>
+    </slot>
   </head>
   <body>
     <header>

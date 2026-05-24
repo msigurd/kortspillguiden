@@ -77,7 +77,8 @@ if (!gameSetupImgs[gameSetupImgPath])
     }
   }
 </style>
-<BaseLayout pageTitle=`${game.data.name} - Kortspillguiden`>
+<BaseLayout>
+  <title slot="title">{game.data.name} - Kortspillguiden</title>
   <a href="/">
     <Image src={arrowLeftIcon} width="18" alt="" />
     Oversikt
