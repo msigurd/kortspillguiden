@@ -16,6 +16,11 @@ const sectionedGames = uniqueMinPlayers.map((minPlayers) =>
 ---
 
 <BaseLayout>
+  <meta
+    slot="description"
+    name="description"
+    content="En enkel oversikt over kjente kortspillregler."
+  />
   {
     sectionedGames.map((games, sectionIndex) => (
       <GameSection games={games} sectionIndex={sectionIndex} />
