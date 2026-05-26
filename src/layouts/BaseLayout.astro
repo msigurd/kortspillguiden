@@ -4,6 +4,16 @@ import logo from "../assets/images/logo.svg";
 ---
 
 <style>
+  :root {
+    --background: #22c55e;
+    --text: black;
+    --text-light: rgb(64 64 64);
+    @media (prefers-color-scheme: dark) {
+      --background: rgb(23 23 23);
+      --text: white;
+      --text-light: rgb(212 212 212);
+    }
+  }
   html,
   body {
     height: 100%;
@@ -24,7 +34,7 @@ import logo from "../assets/images/logo.svg";
       "Segoe UI Emoji",
       Segoe UI Symbol,
       "Noto Color Emoji";
-    background-color: #22c55e;
+    background-color: var(--background);
   }
   body {
     margin: 0 auto;
@@ -51,7 +61,7 @@ import logo from "../assets/images/logo.svg";
     padding: 1rem;
     font-size: 12px;
     a {
-      color: black;
+      color: var(--text);
     }
   }
 </style>
