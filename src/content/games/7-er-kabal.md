@@ -1,11 +1,12 @@
 ---
 name: "7'er kabal"
-iconUnicode: '1F451'
+iconUnicode: "1F451"
 minPlayers: 1
 maxPlayers: 1
-lowestCard: 'A'
-highestCard: 'K'
+lowestCard: "A"
+highestCard: "K"
 ---
+
 ## Mål
 
 Få én bunke av hvert kortsymbol, hvor kortverdiene er ordnet i stigende
@@ -23,8 +24,8 @@ posisjonen til kolonnen: kolonne 1 skal ha 1 kort, kolonne 2 skal ha 2 kort, og
 så videre. Når alle kortene er plassert snur du det nederste kortet i hver kolonne
 slik at det får spillsiden opp.
 
-Til slutt legger du resten av stokken der du vil  ha den – gjerne et sted hvor det
-er plass til å legge flere kort ved siden av. Gjør  også plass til de 4 bunkene av
+Til slutt legger du resten av stokken der du vil ha den – gjerne et sted hvor det
+er plass til å legge flere kort ved siden av. Gjør også plass til de 4 bunkene av
 ulike symboler som du skal ende opp med.
 
 ## Spillets gang
@@ -36,7 +37,7 @@ som er tom. Kort som ikke ligger nederst i en kolonne kan flyttes dersom kortene
 under flyttes med den. Kort som har spillsiden ned og ikke har kort under seg, kan
 snus.
 
-Når du ikke lenger kan flytte noen av kortene i kolonnene, kan du trekke fra stokken 
+Når du ikke lenger kan flytte noen av kortene i kolonnene, kan du trekke fra stokken
 slik at du får flere kort til å bygge kolonner med. Du kan da trekke 3 og 3 kort, og
 for hvert tredje kort kan du kun bruke det siste av dem. Hvis dette ikke kan brukes
 må du trekke 3 nye kort, og legge de forrige 3 tilbake nederst i stokken med spillsiden

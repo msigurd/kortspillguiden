@@ -1,9 +1,10 @@
 ---
-name: 'Hopp i havet'
-iconUnicode: '1F3CA'
+name: "Hopp i havet"
+iconUnicode: "1F3CA"
 minPlayers: 2
 maxPlayers: 5
 ---
+
 ## Mål
 
 Å få flest «stikk». Et stikk er 4 kort av samme verdi.

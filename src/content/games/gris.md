@@ -1,9 +1,10 @@
 ---
-name: 'Gris'
-iconUnicode: '1F416'
+name: "Gris"
+iconUnicode: "1F416"
 minPlayers: 3
 maxPlayers: 8
 ---
+
 ## Mål
 
 For hver runde er målet å samle 5 kort av samme symbol, men for hele spillet er

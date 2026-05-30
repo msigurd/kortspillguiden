@@ -1,10 +1,11 @@
 ---
 name: "Juger'n"
-aliases: ['Jug']
-iconUnicode: '1F925'
+aliases: ["Jug"]
+iconUnicode: "1F925"
 minPlayers: 2
 maxPlayers: 5
 ---
+
 ## Mål
 
 Å være den første til å kvitte seg med alle kortene sine.

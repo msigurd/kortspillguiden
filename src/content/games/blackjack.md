@@ -1,12 +1,13 @@
 ---
-name: 'Blackjack'
-aliases: ['21']
-iconUnicode: '1F935'
+name: "Blackjack"
+aliases: ["21"]
+iconUnicode: "1F935"
 minPlayers: 2
 maxPlayers: 7
-lowestCard: 'A'
-highestCard: 'A'
+lowestCard: "A"
+highestCard: "A"
 ---
+
 ## Mål
 
 Å komme så nærme som mulig, uten å overstige, en håndsum på 21.

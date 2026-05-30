@@ -1,11 +1,12 @@
 ---
-name: 'Krig'
-iconUnicode: '2694'
+name: "Krig"
+iconUnicode: "2694"
 minPlayers: 2
 maxPlayers: 2
-lowestCard: '2'
-highestCard: 'A'
+lowestCard: "2"
+highestCard: "A"
 ---
+
 ## Mål
 
 Å overta alle kortene til motstanderen.

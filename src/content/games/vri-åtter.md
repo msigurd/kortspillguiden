@@ -1,10 +1,11 @@
 ---
-name: 'Vri-åtter'
-aliases: ['Olsen']
-iconUnicode: '1F503'
+name: "Vri-åtter"
+aliases: ["Olsen"]
+iconUnicode: "1F503"
 minPlayers: 2
 maxPlayers: 5
 ---
+
 ## Mål
 
 Å være den første til å kvitte seg med alle kortene sine.

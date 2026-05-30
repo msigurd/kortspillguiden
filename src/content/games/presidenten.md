@@ -1,12 +1,13 @@
 ---
-name: 'Presidenten'
-aliases: ['Boms og president', 'Boms', 'President og slave']
-iconUnicode: '1F9D1'
+name: "Presidenten"
+aliases: ["Boms og president", "Boms", "President og slave"]
+iconUnicode: "1F9D1"
 minPlayers: 3
 maxPlayers: 5
-lowestCard: '3'
-highestCard: '♣3'
+lowestCard: "3"
+highestCard: "♣3"
 ---
+
 ## Mål
 
 Å være den første til å kvitte seg med alle kortene sine, og dermed bli «president».
@@ -22,6 +23,7 @@ de andre.
 
 Titlene bedømmes av plassen man havnet på i forrige runde, og brukes dermed ikke
 den første runden:
+
 - President (førsteplass)
 - Visepresident (andreplass)
 - Arbeider (midterste plass)
@@ -54,6 +56,7 @@ som dermed er blitt boms.
 
 Basert på utfallet av den forrige runden skal man i starten av neste runde bytte
 kort etter utdeling. Byttingen gjøres slik:
+
 - Presidenten gir to valgfrie kort til bomsen
 - Visepresidenten gir ett valgfritt kort til visebomsen
 - Arbeideren beholder alle kortene sine, og mottar heller ingen
