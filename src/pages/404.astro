@@ -1,0 +1,28 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<style>
+  h1,
+  a {
+    color: var(--text);
+  }
+  p {
+    color: var(--text-light);
+  }
+  #description {
+    line-height: 1.5rem;
+    margin-bottom: 2rem;
+  }
+</style>
+<BaseLayout>
+  <title slot="title">Siden finnes ikke</title>
+  <article>
+    <h1>Her varre ikke party</h1>
+    <p id="description">
+      Siden er enten fjernet, flyttet eller har aldri eksistert.
+    </p>
+    <a href="/">Gå til oversikt</a>
+    <p>404 Ikke funnet</p>
+  </article>
+</BaseLayout>
