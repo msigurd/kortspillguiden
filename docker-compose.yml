@@ -1,0 +1,9 @@
+services:
+  app:
+    image: docker.io/node:22
+    entrypoint: sh -c "cd /app && npm run dev -- --host 0.0.0.0"
+    command: sh -c "cd /app && npm ci"
+    ports:
+      - "4321:4321"
+    volumes:
+      - ./:/app
